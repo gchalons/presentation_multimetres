@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>C4_R1 — Animation Flash</title>
+  <script src="ruffle/ruffle.js"></script>
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: #14161a;
+      color: #e8e8ea;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #9aa0a6;
+      margin: 0 0 16px;
+      letter-spacing: 0.02em;
+    }
+    #stage-wrap {
+      background: #000;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+      max-width: 96vw;
+    }
+    ruffle-player {
+      display: block;
+      width: min(900px, 96vw);
+      height: auto;
+      aspect-ratio: 4 / 3;
+    }
+    footer {
+      margin-top: 16px;
+      font-size: 0.8rem;
+      color: #6b7076;
+      text-align: center;
+    }
+    footer a { color: #8ab4f8; }
+  </style>
+</head>
+<body>
+  <h1>C4_R1.swf</h1>
+  <div id="stage-wrap">
+    <ruffle-player id="player"></ruffle-player>
+  </div>
+  <footer>
+    Lecture assurée par <a href="https://ruffle.rs" target="_blank" rel="noopener">Ruffle</a>,
+    un émulateur Flash&nbsp;Player open-source (WebAssembly).
+  </footer>
+
+  <script>
+    window.RufflePlayer = window.RufflePlayer || {};
+    const ruffle = window.RufflePlayer.newest();
+    const player = ruffle.createPlayer();
+    player.id = "player";
+    const container = document.getElementById("stage-wrap");
+    container.replaceChild(player, document.getElementById("player"));
+    player.load("media/C4_R1.swf");
+  </script>
+</body>
+</html>
